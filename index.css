@@ -40,6 +40,10 @@ html {
 
 /*LEFT CONTAINER*/
 .left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 60%;
   border-radius: 1.5rem;
@@ -50,19 +54,68 @@ html {
   background-repeat: no-repeat;
 }
 
-.left-container h1 {
+.left-container h2 {
   font-family: "League Spartan";
-  font-size: 3rem;
+  font-size: 2rem;
   color: #ffffff;
-  margin-top: 1rem;
-  margin-left: 1rem;
 }
 
-/*RIGHT CONTAINER*/
+.search-bar {
+  width: 100%;
+  text-align: center;
+  height: 3rem;
+  border: none;
+  border-radius: 1.5rem;
+}
+.search-bar input[type="text"] {
+  color: white;
+  width: 50%;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 10px;
+  font-family: Poppins;
+  font-size: 1rem;
+  background: rgba(133, 133, 133, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(11.1px);
+  backdrop-filter: blur(2px);
+  border: none;
+}
+.search-bar input[type="text"]:focus {
+  border: none;
+}
+.search-bar i {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+/*GLOBAL STYLE RIGHT CONTAINER*/
 .right-container {
   height: 100%;
   width: 40%;
   padding-left: 1rem;
   background-color: #ffffff;
   border-radius: 1.5rem;
+}
+
+/*RIGHT CONTAINER DEFAULT*/
+.home-section h2 {
+  font-family: "League Spartan";
+  font-size: 3rem;
+  color: #202a3a;
+  text-align: end;
+  width: 80%;
+}
+
+.home-section p {
+  font-family: "Poppins";
+  font-size: 1rem;
+  color: #202a3a;
+  text-align: end;
+  width: 80%;
+}
+
+/*RIGHT CONTAINER WEATHER DATA*/
+.weather-data {
+  display: none;
 }
