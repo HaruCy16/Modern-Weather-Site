@@ -98,7 +98,15 @@ html {
   border-radius: 1.5rem;
 }
 
-/*RIGHT CONTAINER DEFAULT*/
+/*RIGHT CONTAINER HOME SECTION*/
+.home-section {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
 .home-section h2 {
   font-family: "League Spartan";
   font-size: 3rem;
@@ -116,6 +124,76 @@ html {
 }
 
 /*RIGHT CONTAINER WEATHER DATA*/
-.weather-data {
+
+/* .weather-data {
   display: none;
+} */
+
+/* RIGHT CONTAINER WEATHER DATA SECTION */
+.weather-data {
+  height: 100%;
+}
+
+/*DATA HEADER*/
+.header {
+  height: 15%;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  border-bottom: black solid 5px;
+
+  h1 {
+    font-family: "League Spartan";
+    font-size: 3rem;
+    color: #202a3a;
+    text-align: end;
+    margin: 0;
+    margin-top: 1rem;
+  }
+  p {
+    font-family: "Poppins";
+    font-size: 2rem;
+    color: #000000;
+    margin: 0;
+  }
+}
+
+/*DATA INFO*/
+.weather-info {
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.weather-status,
+.weather-details {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  width: 50%;
+  height: 100%;
+  margin-top: 1rem;
+}
+
+.weather-status {
+  border-right: black solid 5px;
+}
+
+/*WEATHER STATUS LEFT*/
+.weather-status img {
+  width: 50%;
+  height: 25%;
+  margin-left: 4rem;
+}
+
+.weather-status #weatherType {
+  text-align: center;
+  margin: 0;
+}
+
+/*WEATHER STATUS RIGHT*/
+.weather-details {
+  margin-left: 1rem;
 }
