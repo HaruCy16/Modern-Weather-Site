@@ -19,7 +19,7 @@
   <body>
     <div class="main-container">
       <div class="centered-container">
-        <div class="left-container">
+        <div class="left-container" id="background">
           <h2 id="fetchMessage">The Only Weather Site you Need!</h2>
           <div class="search-bar">
             <input type="text" placeholder="Enter City Name" id="searchBar" />
@@ -34,22 +34,23 @@
           <div class="weather-data" id="weatherData">
             <div class="header">
               <h1 id="weatherLoc">
-                Manila <i class="fa-solid fa-location-dot"></i>
+                <strong id="location"></strong>
+                <i class="fa-solid fa-location-dot"></i>
               </h1>
-              <p>Today</p>
+              <p>Today <span id="currentTime"></span></p>
             </div>
             <div class="weather-info">
               <div class="weather-status">
-                <div class="status-left-upper">
+                <div class="status-left">
                   <img
-                    src="assets/weather_symbols/Clear.png"
-                    alt=""
                     id="weatherIcon"
-                    width="100px"
-                    height="100px"
+                    src=""
+                    alt="icon"
+                    width="200px"
+                    height="200px"
                   />
-                  <h2 id="weatherType">Sunny</h2>
-                  <h2 class="temperature"><strong id="temp"></strong>°C</h2>
+                  <h2 id="weatherType"></h2>
+                  <h2 id="temperature"></h2>
                 </div>
               </div>
               <div class="weather-details">

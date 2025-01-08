@@ -10,32 +10,53 @@ async function getWeatherData(city) {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
+    var data = await response.json();
 
-    document.getElementById("weatherLoc").innerHTML = data.name;
-    document.getElementById("temp").innerHTML =
-      Math.round(data.main.temp) + "°C";
+    //WEATHER LOCATION, TEMPERATURE AND TIME
+    document.getElementById("location").innerHTML = data.name; //LOCATION
+    document.getElementById("temperature").innerHTML = data.main.temp + "°C"; //TEMPERATURE
+    document.getElementById("currentTime").innerHTML = data.timezone;
+    //WEATHER ICON AND BACKGROUND
+    let icon = document.getElementById("weatherIcon");
+    let weatherBackground = document.getElementById("background");
 
-    console.log(data);
-
-    //Weather Conditions
-    document.querySelector(".weather-status").innerHTML = data.weather[0].main;
-    // document.getElementById("weatherIcon").style.display = "block";
+    //WEATHER CONDITIONS
+    document.getElementById("weatherType").innerHTML = data.weather[0].main;
+    icon.style.display = "block";
 
     if (data.weather[0].main == "Clouds") {
-      document.getElementById("weatherIcon").src =
-        "assets/weather_symbols/Cloudy.png";
+      icon.src = "assets/weather_symbols/cloudy.png";
+      weatherBackground.style.backgroundImage =
+        "url('assets/weather_image/cloudy.png')";
     } else if (data.weather[0].main == "Clear") {
-      document.getElementById("weatherIcon").src =
-        "assets/weather_symbols/Clear.png";
+      icon.src = "assets/weather_symbols/clear.png";
+      weatherBackground.style.backgroundImage =
+        "url('assets/weather_image/sunny.png')";
     } else if (data.weather[0].main == "Rain") {
-      document.getElementById("weatherIcon").src =
-        "assets/weather_symbols/Rainy.png";
+      icon.src = "assets/weather_symbols/rainy.png";
+      weatherBackground.style.backgroundImage =
+        "url('assets/weather_image/rainy.png')";
+    } else if (data.weather[0].main == "Thunderstorm") {
+      icon.src = "assets/weather_symbols/thunder.png";
+      weatherBackground.style.backgroundImage =
+        "url('assets/weather_image/thunderstorm.png')";
+    } else if (data.weather[0].main == "Drizzle") {
+      icon.src = "assets/weather_symbols/drizzle.png";
+      weatherBackground.style.backgroundImage =
+        "url('assets/weather_image/drizzle.png')";
     } else {
       document.getElementById("fetchMessage").innerHTML = "City not found";
     }
+
+    //WEATHER INFORMATION (HUMIDITY, PRESSURE, SEA LEVEL)
+    document.getElementById("humid").innerHTML = data.main.humidity + "%";
+    document.getElementById("pressure").innerHTML = data.main.pressure + " hPa";
+    document.getElementById("seaLvl").innerHTML = data.main.sea_level + " hPa";
+
+    console.log(data);
   } catch (error) {
-    console.log(error);
+    alert(error);
+    console.log(`${data.weather[0].main}`);
   }
 }
 
