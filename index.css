@@ -155,9 +155,14 @@ html {
   }
   p {
     font-family: "Poppins";
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #000000;
     margin: 0;
+
+    span {
+      font-weight: bold;
+      text-align: end;
+    }
   }
 }
 
@@ -194,15 +199,16 @@ html {
 }
 
 #weatherType {
-  text-align: center;
-  margin: 0;
+  font-size: 2rem;
 }
 
 #temperature {
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 /*WEATHER STATUS RIGHT*/
 .weather-details {
   margin-left: 1rem;
 }
+
+/*MEDIA QUERIES*/
