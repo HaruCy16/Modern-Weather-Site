@@ -15,7 +15,7 @@ async function getWeatherData(city) {
     //WEATHER LOCATION, TEMPERATURE AND TIME
     document.getElementById("location").innerHTML = data.name; //LOCATION
     document.getElementById("temperature").innerHTML = data.main.temp + "°C"; //TEMPERATURE
-    document.getElementById("currentTime").innerHTML = data.timezone;
+    document.getElementById("currentTime").innerHTML = data.timezone; //TIME
     //WEATHER ICON AND BACKGROUND
     let icon = document.getElementById("weatherIcon");
     let weatherBackground = document.getElementById("background");
