@@ -81,7 +81,8 @@ html {
   backdrop-filter: blur(2px);
   border: none;
 }
-.search-bar input[type="text"]:focus {
+.search-bar input[type="text"] {
+  outline: none;
   border: none;
 }
 .search-bar i {
