@@ -12,10 +12,18 @@ async function getWeatherData(city) {
     }
     var data = await response.json();
 
-    //WEATHER LOCATION, TEMPERATURE AND TIME
+    //WEATHER INFORMATION
     document.getElementById("location").innerHTML = data.name; //LOCATION
     document.getElementById("temperature").innerHTML = data.main.temp + "°C"; //TEMPERATURE
-    document.getElementById("currentTime").innerHTML = data.timezone;
+    document.getElementById("humid").innerHTML = data.main.humidity + "%"; //HUMIDITY
+    document.getElementById("pressure").innerHTML = data.main.pressure + " hPa"; //PRESSURE
+    document.getElementById("seaLvl").innerHTML = data.main.sea_level + " hPa"; //SEA LEVEL
+
+    //TIME LOGIC
+    const today = new Date().toString().split(" ").splice(1, 3).join(" ");
+
+    document.getElementById("currentDate").innerHTML = today;
+
     //WEATHER ICON AND BACKGROUND
     let icon = document.getElementById("weatherIcon");
     let weatherBackground = document.getElementById("background");
@@ -48,15 +56,10 @@ async function getWeatherData(city) {
       document.getElementById("fetchMessage").innerHTML = "City not found";
     }
 
-    //WEATHER INFORMATION (HUMIDITY, PRESSURE, SEA LEVEL)
-    document.getElementById("humid").innerHTML = data.main.humidity + "%";
-    document.getElementById("pressure").innerHTML = data.main.pressure + " hPa";
-    document.getElementById("seaLvl").innerHTML = data.main.sea_level + " hPa";
-
     console.log(data);
   } catch (error) {
     alert(error);
-    console.log(`${data.weather[0].main}`);
+    console.log(error);
   }
 }
 
