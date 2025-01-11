@@ -79,12 +79,9 @@ html {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(11.1px);
   backdrop-filter: blur(2px);
-  border: none;
+  border: 1px solid rgb(105, 105, 105);
 }
-.search-bar input[type="text"] {
-  outline: none;
-  border: none;
-}
+
 .search-bar i {
   color: #ffffff;
   font-size: 1.5rem;

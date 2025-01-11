@@ -12,6 +12,15 @@ async function getWeatherData(city) {
     }
     var data = await response.json();
 
+    //DEFAULT FORMAT CHANGE
+
+    //Home message display none
+    document.getElementById("fetchMessage").style.display = "none";
+
+    //Search bar adjust to top
+    document.getElementById("background").style.display = "block";
+    document.getElementById("searchBar").style.marginTop = "16px";
+
     //WEATHER INFORMATION
     document.getElementById("location").innerHTML = data.name; //LOCATION
     document.getElementById("temperature").innerHTML = data.main.temp + "°C"; //TEMPERATURE
@@ -19,9 +28,8 @@ async function getWeatherData(city) {
     document.getElementById("pressure").innerHTML = data.main.pressure + " hPa"; //PRESSURE
     document.getElementById("seaLvl").innerHTML = data.main.sea_level + " hPa"; //SEA LEVEL
 
-    //TIME LOGIC
+    //DATE LOGIC
     const today = new Date().toString().split(" ").splice(1, 3).join(" ");
-
     document.getElementById("currentDate").innerHTML = today;
 
     //WEATHER ICON AND BACKGROUND
@@ -58,7 +66,8 @@ async function getWeatherData(city) {
 
     console.log(data);
   } catch (error) {
-    alert(error);
+    //ERROR MESS  AGE
+    document.getElementById("fetchMessage").innerHTML = "ERROR 404 NOT FOUND";
     console.log(error);
   }
 }

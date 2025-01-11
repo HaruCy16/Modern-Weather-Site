@@ -1,12 +1,12 @@
 <h1 align = "center">
-    Modern Weather Site
+    🌦️ Modern Weather Site
 </h1>
 <hr></hr>
 
 ## INTRODUCTION
 
 - A modern weather site that displays real-time weather data of cities across the world.
-- Was created with the use of API from [!OpenWeatherAPI](https://openweathermap.org/api)
+- Was created with the use of API from [OpenWeatherAPI](https://openweathermap.org/api)
 
 ---
 
