@@ -66,7 +66,7 @@ async function getWeatherData(city) {
 
     console.log(data);
   } catch (error) {
-    //ERROR MESS  AGE
+    //ERROR MESSAGE
     document.getElementById("fetchMessage").innerHTML = "ERROR 404 NOT FOUND";
     console.log(error);
   }
