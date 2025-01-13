@@ -1,5 +1,5 @@
 <h1 align = "center">
-    🌦️ Modern Weather Site
+    🌦️Modern Weather Site
 </h1>
 <hr></hr>
 
