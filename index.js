@@ -3,6 +3,10 @@ const apiKey = "31888860aa735911d9686859f1bb463b";
 const apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
+//WEATHER ICON AND BACKGROUND
+let icon = document.getElementById("weatherIcon");
+let weatherBackground = document.getElementById("background");
+
 //FUNCTION TO GET WEATHER DATA
 async function getWeatherData(city) {
   try {
@@ -32,10 +36,6 @@ async function getWeatherData(city) {
     const today = new Date().toString().split(" ").splice(1, 3).join(" ");
     document.getElementById("currentDate").innerHTML = today;
 
-    //WEATHER ICON AND BACKGROUND
-    let icon = document.getElementById("weatherIcon");
-    let weatherBackground = document.getElementById("background");
-
     //WEATHER CONDITIONS
     document.getElementById("weatherType").innerHTML = data.weather[0].main;
     icon.style.display = "block";
@@ -61,13 +61,29 @@ async function getWeatherData(city) {
       weatherBackground.style.backgroundImage =
         "url('assets/weather_image/drizzle.png')";
     } else {
-      document.getElementById("fetchMessage").innerHTML = "City not found";
+      icon.src = "assets/weather_symbols/default.png";
+      weatherBackground.style.backgroundImage =
+        "url('assets/weather_image/default.png')";
     }
 
     console.log(data);
   } catch (error) {
     //ERROR MESSAGE
+
+    //Hide weather data
     document.getElementById("fetchMessage").innerHTML = "ERROR 404 NOT FOUND";
+    document.querySelector(".header").style.display = "none";
+    document.querySelector(".weather-status").style.display = "none";
+    document.querySelector(".weather-details").style.display = "none";
+
+    //Show default background
+    document.getElementById("background").style.backgroundImage.src =
+      "assets/weather_image/default.png";
+    weatherBackground.style.backgroundImage =
+      "url('assets/weather_image/default.png')";
+
+    //Show error message
+    document.getElementById("errorMessage").style.display = "block";
     console.log(error);
   }
 }
