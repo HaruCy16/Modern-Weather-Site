@@ -36,6 +36,16 @@ async function getWeatherData(city) {
     const today = new Date().toString().split(" ").splice(1, 3).join(" ");
     document.getElementById("currentDate").innerHTML = today;
 
+    //LOGIC FOR WEATHER DATA BEING SHOWED IF YOU SEARCH AGAIN FROM AN ERROR MESSAGE
+
+    //Hide error message
+    document.getElementById("errorMessage").style.display = "none";
+
+    //Show weather data
+    document.querySelector(".header").style.display = "block";
+    document.querySelector(".weather-status").style.display = "block";
+    document.querySelector(".weather-details").style.display = "block";
+
     //WEATHER CONDITIONS
     document.getElementById("weatherType").innerHTML = data.weather[0].main;
     icon.style.display = "block";
@@ -71,16 +81,16 @@ async function getWeatherData(city) {
     //ERROR MESSAGE
 
     //Hide weather data
-    document.getElementById("fetchMessage").innerHTML = "ERROR 404 NOT FOUND";
     document.querySelector(".header").style.display = "none";
     document.querySelector(".weather-status").style.display = "none";
     document.querySelector(".weather-details").style.display = "none";
 
-    //Show default background
-    document.getElementById("background").style.backgroundImage.src =
-      "assets/weather_image/default.png";
+    //Right side message
     weatherBackground.style.backgroundImage =
-      "url('assets/weather_image/default.png')";
+      "url('assets/weather_image/default.png')"; //background image
+    document.getElementById("fetchMessage").innerHTML = "ERROR 404 NOT FOUND";
+    document.getElementById("fetchMessage").style.display = "block";
+    weatherBackground.style.display = "flex"; //display at the center
 
     //Show error message
     document.getElementById("errorMessage").style.display = "block";
