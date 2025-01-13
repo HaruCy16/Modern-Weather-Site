@@ -209,4 +209,24 @@ html {
   margin-left: 1rem;
 }
 
+/*ERROR MESSAGE*/
+#errorMessage {
+  display: none;
+  h2 {
+    font-family: "League Spartan";
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+  }
+  p {
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+  }
+  i {
+    font-size: 3rem;
+  }
+}
+
 /*MEDIA QUERIES*/
