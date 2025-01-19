@@ -33,7 +33,7 @@ html {
   margin: auto;
   width: 70%;
   height: 70%;
-  background-color: rgb(255, 255, 255); /* Optional: for visibility */
+  background-color: rgb(255, 255, 255);
   border-radius: 1.5rem;
   border: none;
 }
@@ -230,3 +230,30 @@ html {
 }
 
 /*MEDIA QUERIES*/
+@media (max-width: 768px) {
+  /*MAIN CONTAINER*/
+  .centered-container {
+    /* margin: 0; */
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  /*HIDE WEATHER INFO ON MOBILE IF NOTHING IS BEING SEARCHED*/
+  .right-container {
+    display: none;
+    /*DESIGN OF WEATHER INFO MOBILE*/
+    /* height: 20%; */
+    width: auto;
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  /*LEFT CONTAINER DESIGN ON MOBILE*/
+  .left-container {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
