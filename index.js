@@ -103,8 +103,13 @@ async function getWeatherData(city) {
 
 //FUNCTION FOR MOBILE
 function mobileWidth() {
-  document.querySelector(".right-container").style.display = "block";
-  document.querySelector(".left-container").style.height = "30%";
+  // const width = window.innerWidth;
+
+  if (window.innerWidth <= 768) {
+    document.querySelector(".right-container").style.display = "block";
+    document.querySelector(".left-container").style.height = "30%";
+    console.log("screen is mobile");
+  }
 }
 
 //SEARCH
