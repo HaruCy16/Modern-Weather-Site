@@ -76,6 +76,7 @@ async function getWeatherData(city) {
         "url('assets/weather_image/default.png')";
     }
 
+    //CONSOLE DEBUGGING
     console.log(data);
   } catch (error) {
     //ERROR MESSAGE
@@ -100,6 +101,12 @@ async function getWeatherData(city) {
 
 //SHOW WEATHER DATA WHEN FETCHING
 
+//FUNCTION FOR MOBILE
+function mobileWidth() {
+  document.querySelector(".right-container").style.display = "block";
+  document.querySelector(".left-container").style.height = "30%";
+}
+
 //SEARCH
 const searchBar = document.getElementById("searchBar");
 const searchBtn = document.getElementById("searchBtn");
@@ -113,12 +120,13 @@ searchBar.addEventListener("keypress", function (event) {
   if (event.key == "Enter") {
     defaultPage.style.display = "none";
     dataPage.style.display = "block";
+    mobileWidth();
     getWeatherData(searchBar.value);
   }
 });
 searchBtn.addEventListener("click", () => {
   defaultPage.style.display = "none";
   dataPage.style.display = "block";
-
+  mobileWidth();
   getWeatherData(searchBar.value);
 });
