@@ -7,7 +7,7 @@ import './styles.css'
 const initialPlace = { name: 'Manila', state: 'Metro Manila', country: 'PH', lat: 14.5995, lon: 120.9842 }
 const unitSymbol = u => u === 'metric' ? '°' : '°'
 const formatTemp = (n, units, decimals = 0) => `${Math.round(n ?? 0)}${unitSymbol(units)}`
-const time = (dt, tz = 0, opts = {}) => new Intl.DateTimeFormat([], { hour: 'numeric', minute: opts.minute ? '2-digit' : undefined, timeZone: 'UTC', ...opts }).format(new Date((dt + tz) * 1000))
+const time = (dt, tz = 0, opts = {}) => new Intl.DateTimeFormat([], { hour: 'numeric', minute: opts.minute ? '2-digit' : undefined, timeZone: 'UTC' }).format(new Date((dt + tz) * 1000))
 const day = dt => new Intl.DateTimeFormat([], { weekday: 'short' }).format(new Date(dt * 1000))
 
 function Button({ children, className = '', ...props }) { return <button className={`icon-button ${className}`} {...props}>{children}</button> }
