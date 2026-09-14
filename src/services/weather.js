@@ -3,6 +3,7 @@ const cacheKey = (lat, lon, units) => `weatherly:${lat.toFixed(2)}:${lon.toFixed
 
 export function countryName(country) {
   if (!country) return ''
+  if (country.length !== 2) return country.replace(/\b\w/g, letter => letter.toUpperCase())
   try {
     return new Intl.DisplayNames(['en'], { type: 'region' }).of(country.toUpperCase()) || country
   } catch {
