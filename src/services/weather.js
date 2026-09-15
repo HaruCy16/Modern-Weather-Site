@@ -43,6 +43,12 @@ export async function getWeather(place, units = 'metric') {
   ])
   const currentData = {
     ...current,
+    temp: current.temp ?? current.main?.temp,
+    feels_like: current.feels_like ?? current.main?.feels_like,
+    humidity: current.humidity ?? current.main?.humidity,
+    pressure: current.pressure ?? current.main?.pressure,
+    visibility: current.visibility ?? current.visibility,
+    dew_point: current.dew_point ?? (current.main?.temp - 6),
     sunrise: current.sunrise ?? current.sys?.sunrise,
     sunset: current.sunset ?? current.sys?.sunset,
     wind_speed: current.wind_speed ?? current.wind?.speed,
