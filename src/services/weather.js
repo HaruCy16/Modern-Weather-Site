@@ -41,8 +41,17 @@ export async function getWeather(place, units = 'metric') {
     getJson(`https://api.openweathermap.org/data/2.5/forecast?lat=${place.lat}&lon=${place.lon}&units=${units}&appid=${key}`),
     getJson(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${place.lat}&lon=${place.lon}&appid=${key}`).catch(() => null)
   ])
+  const currentData = {
+    ...current,
+    sunrise: current.sunrise ?? current.sys?.sunrise,
+    sunset: current.sunset ?? current.sys?.sunset,
+    wind_speed: current.wind_speed ?? current.wind?.speed,
+    wind_deg: current.wind_deg ?? current.wind?.deg,
+    wind_gust: current.wind_gust ?? current.wind?.gust,
+    clouds: current.clouds?.all ?? current.clouds,
+  }
   const byDay = Object.values(forecast.list.reduce((acc, item) => { const day = new Date(item.dt * 1000).toDateString(); (acc[day] ||= []).push(item); return acc }, {})).slice(0, 8)
-  const result = { location: normalizePlace({ ...place, name: current.name, timezone: current.timezone }), current, hourly: forecast.list.slice(0, 12), daily: byDay.map(items => ({ ...items[0], dt: items[0].dt, temp: { max: Math.max(...items.map(x => x.main.temp_max)), min: Math.min(...items.map(x => x.main.temp_min)) }, pop: Math.max(...items.map(x => x.pop || 0)) })), alerts: [], air: air?.list?.[0] }
+  const result = { location: normalizePlace({ ...place, name: current.name, timezone: current.timezone }), current: currentData, hourly: forecast.list.slice(0, 12).map(item => ({ ...item, temp: item.main.temp })), daily: byDay.map(items => ({ ...items[0], dt: items[0].dt, temp: { max: Math.max(...items.map(x => x.main.temp_max)), min: Math.min(...items.map(x => x.main.temp_min)) }, pop: Math.max(...items.map(x => x.pop || 0)) })), alerts: [], air: air?.list?.[0] }
   localStorage.setItem(cacheKey(place.lat, place.lon, units), JSON.stringify(result)); return result
 }
 export function readCached(place, units) { try { return JSON.parse(localStorage.getItem(cacheKey(place.lat, place.lon, units))) } catch { return null } }
